@@ -17,6 +17,7 @@ modules:
         - swayfx/swayfx
         - lihaohong/yazi
         - tofik/nwg-shell
+        - dhalucario/ly
     
     replace:
       - from-repo: copr:copr.fedorainfracloud.org:swayfx:swayfx
@@ -40,6 +41,7 @@ modules:
         - godot
         - curl
         - gtklock
+        - ly
     remove:
       packages:
         - swaylock
