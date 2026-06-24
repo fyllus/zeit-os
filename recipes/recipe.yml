@@ -11,14 +11,14 @@ modules:
       - source: system
         destination: /
 
-  # GERENCIADOR DNF: Configura os repositórios, faz a substituição e instala apps
+  # GERENCIADOR DNF: Configura os repositórios, faz a substituição e instala apps nativos
   - type: dnf
     repos:
       copr:
         - swayfx/swayfx
         - lihaohong/yazi
+        - tofik/nwg-shell
     
-    # Substitui o Sway padrão pelo SwayFX vindo do repositório Copr
     replace:
       - from-repo: copr:copr.fedorainfracloud.org:swayfx:swayfx
         packages:
@@ -28,7 +28,6 @@ modules:
     install:
       packages:
         - micro
-        - librewolf
         - btop
         - fuzzel
         - pamixer
@@ -37,7 +36,7 @@ modules:
         - swappy
         - fzf
         - yazi
-        - nwg-look
+        - nwg-look 
         - nwg-bar
         - godot
         - curl
@@ -49,10 +48,10 @@ modules:
 
   # INSTALAÇÃO GLOBAL DO ZED EDITOR
   - type: script
-    snippets:
-      - echo "Instalando o Zed Editor de forma global..."
+    snippets:      
       - curl -f https://zed.dev | HOME=/usr/local/ share_dir=/usr/local/share bin_dir=/usr/local/bin sh
 
+  # CENTRAL DE FLATPAKS: Instalando navegadores e visualizadores isolados
   - type: default-flatpaks
     configurations:
       - notify: true
@@ -60,6 +59,7 @@ modules:
         install:
           - org.mozilla.firefox
           - org.gnome.Loupe
+          - io.gitlab.librewolf-community
       - scope: user
 
   - type: signing
