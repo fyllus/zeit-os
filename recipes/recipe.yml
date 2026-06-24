@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://blue-build.org
 name: zeit-os
-description: This is my personal OS image with SwayFX and Zed.
+description: Zeit-OS is a custom image for Fedora Sway Atomic.
 
 base-image: ghcr.io/ublue-os/sway-atomic-main
 image-version: latest
@@ -10,8 +10,7 @@ modules:
     files:
       - source: system
         destination: /
-
-  # GERENCIADOR DNF: Configura os repositórios, faz a substituição e instala apps nativos
+ 
   - type: dnf
     repos:
       copr:
@@ -40,22 +39,24 @@ modules:
         - nwg-bar
         - godot
         - curl
+        - gtklock
     remove:
       packages:
-        - rofi
+        - swaylock
+        - rofi-wayland
         - firefox
         - firefox-langpacks
-
   
-  # CENTRAL DE FLATPAKS: Instalando navegadores e visualizadores isolados
+  
   - type: default-flatpaks
     configurations:
       - notify: true
         scope: system
         install:
+          - io.gitlab.librewolf-community
+        uninstall:
           - org.mozilla.firefox
           - org.gnome.Loupe
-          - io.gitlab.librewolf-community
       - scope: user
 
   - type: signing
