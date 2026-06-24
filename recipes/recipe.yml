@@ -41,11 +41,10 @@ modules:
         - godot
         - curl
         - gtklock
-        - gdm
+        
     remove:
       packages:
         - swaylock
-        - rofi-wayland
         - firefox
         - firefox-langpacks
   
