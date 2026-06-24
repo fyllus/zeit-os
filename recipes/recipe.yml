@@ -3,7 +3,7 @@ name: zeit-os
 description: This is my personal OS image with SwayFX and Zed.
 
 base-image: ghcr.io/ublue-os/sway-atomic-main
-image-version: '44'
+image-version: latest
 
 modules:
   - type: files
