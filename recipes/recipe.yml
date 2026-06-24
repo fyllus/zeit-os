@@ -46,14 +46,7 @@ modules:
         - firefox
         - firefox-langpacks
 
-  # INSTALAÇÃO GLOBAL DO ZED EDITOR
-  - type: script
-    snippets:
-      - curl -fL https://zed.dev -o /tmp/install_zed.sh
-      - HOME=/usr/local share_dir=/usr/local/share bin_dir=/usr/local/bin sh /tmp/install_zed.sh
-      - rm /tmp/install_zed.sh
-
-
+  
   # CENTRAL DE FLATPAKS: Instalando navegadores e visualizadores isolados
   - type: default-flatpaks
     configurations:
