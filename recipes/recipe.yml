@@ -28,8 +28,7 @@ modules:
       packages:
         - git
         - micro
-        - btop
-        - fuzzel
+        - btop     
         - pamixer
         - grimshot
         - slurp
@@ -59,5 +58,8 @@ modules:
           - org.mozilla.firefox
           - org.gnome.Loupe
       - scope: user
+  - type: script
+    snippets:
+      - curl -f https://zed.dev/install.sh | sh
 
   - type: signing
