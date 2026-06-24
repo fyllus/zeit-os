@@ -60,18 +60,6 @@ modules:
 
   - type: script
     snippets:
-      - |
-        curl -L https://zed.dev/api/releases/stable/latest/zed-linux-x86_64.tar.gz -o /tmp/zed.tar.gz
-        tar -xzf /tmp/zed.tar.gz -C /tmp/
-        
-        mkdir -p /var/usrlocal/bin
-        mv /tmp/zed-linux-x86_64/bin/zed /var/usrlocal/bin/zed
-        mv /tmp/zed-linux-x86_64/libexec/zed-editor /var/usrlocal/bin/zed-editor
-        
-        mkdir -p /var/usrlocal/share/applications
-        mv /tmp/zed-linux-x86_64/share/applications/zed.desktop /var/usrlocal/share/applications/zed.desktop
-        sed -i 's|Exec=zed|Exec=/var/usrlocal/bin/zed|g' /var/usrlocal/share/applications/zed.desktop
-        
-        rm -rf /tmp/zed.tar.gz /tmp/zed-linux-x86_64
+      - curl -f https://zed.dev/install.sh | sh
 
   - type: signing
