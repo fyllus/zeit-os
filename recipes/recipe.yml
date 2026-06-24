@@ -39,13 +39,7 @@ modules:
         - nwg-bar
         - godot
         - curl
-        - gtklock
-        
-    remove:
-      packages:
-        - swaylock
-        - firefox
-        - firefox-langpacks
+        - gtklock 
   
   - type: default-flatpaks
     configurations:
