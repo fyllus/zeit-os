@@ -1,6 +1,6 @@
-# yaml-language-server: $schema=https://blue-build.org
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 name: zeit-os
-description: This is my personal OS image with SwayFX.
+description: This is my personal OS image with SwayFX and Zed.
 
 base-image: ghcr.io/ublue-os/sway-atomic-main
 image-version: '44'
@@ -11,14 +11,19 @@ modules:
       - source: system
         destination: /
 
-  - type: dnf
+  # ETAPA 1: Adiciona o repositório Copr e faz a troca do Sway pelo SwayFX nativamente
+  - type: rpm-ostree
     repos:
-      copr:
-        - swayfx/swayfx
-        - lihaohong/yazi
+      - copr:swayfx/swayfx
     swap:
       - from: sway
         to: swayfx
+
+  # ETAPA 2: Instala e remove o restante dos pacotes usando o gerenciador dnf
+  - type: dnf
+    repos:
+      copr:
+        - lihaohong/yazi # Mantive o repositório do Yazi que você adicionou!
     install:
       packages:
         - micro
@@ -40,15 +45,19 @@ modules:
         - rofi
         - firefox
         - firefox-langpacks
-  
+
+  # ETAPA 3: Instalação global do Zed Editor
   - type: script
     snippets:
-      - curl -f https://zed.dev/install.sh | HOME=/usr/local/ share_dir=/usr/local/share bin_dir=/usr/local/bin sh
+      - curl -f https://zed.dev | HOME=/usr/local/ share_dir=/usr/local/share bin_dir=/usr/local/bin sh
 
   - type: default-flatpaks
     configurations:
       - notify: true
-        scope: system     
+        scope: system
+        install:
+          - org.mozilla.firefox
+          - org.gnome.Loupe
       - scope: user
 
   - type: signing
