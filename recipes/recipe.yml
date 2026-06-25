@@ -39,16 +39,16 @@ modules:
         - nwg-bar
         - godot
         - curl
-        - gtklock 
+        - gtklock
+        - podman
+        - podman-compose
+        - gimp
   
   - type: default-flatpaks
     configurations:
-      - notify: true
+      - notify: false
         scope: system
         install:
-          - io.gitlab.librewolf-community
-        uninstall:
-          - org.mozilla.firefox
-          - org.gnome.Loupe
+          - io.gitlab.librewolf-community       
       - scope: user
   - type: signing
