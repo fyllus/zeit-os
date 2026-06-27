@@ -17,8 +17,8 @@ modules:
         - swayfx/swayfx
         - lihaohong/yazi
         - tofik/nwg-shell
-      repo-files:
-        - https://repo.librewolf.net/librewolf.repo
+      files:
+        - https://librewolf.net
     replace:
       - from-repo: copr:copr.fedorainfracloud.org:swayfx:swayfx
         packages:
