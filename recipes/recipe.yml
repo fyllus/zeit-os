@@ -18,7 +18,7 @@ modules:
         - lihaohong/yazi
         - tofik/nwg-shell
       files:
-        - https://librewolf.net
+        - https://repo.librewolf.net/librewolf.repo
     replace:
       - from-repo: copr:copr.fedorainfracloud.org:swayfx:swayfx
         packages:
