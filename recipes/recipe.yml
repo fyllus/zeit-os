@@ -2,7 +2,7 @@
 name: zeit-os
 description: Zeit-OS is a custom image for Fedora Sway Atomic.
 
-base-image: ghcr.io/ublue-os/sway-atomic-main
+base-image: ghcr.io/wayblueorg/sway
 image-version: latest
 
 modules:
