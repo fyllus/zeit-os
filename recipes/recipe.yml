@@ -17,7 +17,8 @@ modules:
         - swayfx/swayfx
         - lihaohong/yazi
         - tofik/nwg-shell
-    
+      repo-files:
+        - https://repo.librewolf.net/librewolf.repo
     replace:
       - from-repo: copr:copr.fedorainfracloud.org:swayfx:swayfx
         packages:
@@ -43,12 +44,6 @@ modules:
         - podman
         - podman-compose
         - gimp
-  
-  - type: default-flatpaks
-    configurations:
-      - notify: false
-        scope: system
-        install:
-          - io.gitlab.librewolf-community       
-      - scope: user
+        - librewolf
+
   - type: signing
