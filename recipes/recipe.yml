@@ -17,6 +17,7 @@ modules:
         - swayfx/swayfx
         - lihaohong/yazi
         - tofik/nwg-shell
+        - che/zed
       files:
         - https://repo.librewolf.net/librewolf.repo
     replace:
@@ -27,6 +28,7 @@ modules:
 
     install:
       packages:
+        - zed
         - git
         - micro
         - btop     
